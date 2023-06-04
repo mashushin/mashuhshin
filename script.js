@@ -1,4 +1,4 @@
-// ナビゲーションメニューのアクティブなリンクをハイライトする
+
 const navLinks = document.querySelectorAll('nav ul li a');
 
 navLinks.forEach(link => {
@@ -8,7 +8,7 @@ navLinks.forEach(link => {
   });
 });
 
-// 最新ニュースを自動的にスクロールする
+
 const newsList = document.querySelector('#news ul');
 let newsItems = newsList.querySelectorAll('li');
 let currentNewsIndex = 0;
