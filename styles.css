@@ -28,7 +28,7 @@ nav ul li a {
   margin-right: 10px;
 }
 
-/* セクション */
+/* メインセクション */
 main {
   padding: 20px;
 }
@@ -37,7 +37,7 @@ h1, h2, h3 {
   color: #333;
 }
 
-/* 紹介 */
+/* 作品紹介 */
 .work {
   margin-bottom: 20px;
 }
@@ -46,7 +46,7 @@ h1, h2, h3 {
   width: 200px;
 }
 
-/* スタッフ */
+/* キャスト・スタッフ */
 .person {
   margin-bottom: 20px;
 }
@@ -55,7 +55,7 @@ h1, h2, h3 {
   width: 150px;
 }
 
-/* ニュース */
+/* 最新ニュース */
 ul {
   padding: 0;
   list-style-type: none;
@@ -65,7 +65,7 @@ ul li {
   margin-bottom: 10px;
 }
 
-/* デザイン */
+/* レスポンシブデザイン */
 @media (max-width: 600px) {
   h1 {
     font-size: 24px;
@@ -80,7 +80,7 @@ ul li {
   }
 }
 
-/* ダークテーマ */
+/* ダークテーマのスタイル */
 body {
   background-color: #333;
   color: #fff;
@@ -265,3 +265,29 @@ ul li {
     transform: scale(2.5);
   }
 }
+
+@media screen and (max-width: 600px) {
+
+  body {
+    font-size: 14px;
+  }
+
+
+}
+
+/* PC向け */
+@media screen and (min-width: 768px) {
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+/* モバイル向け */
+@media screen and (max-width: 767px) {
+  nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
