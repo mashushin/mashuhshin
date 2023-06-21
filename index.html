@@ -59,10 +59,18 @@
   height: 270px; 
 }
 
+/* PCYOU */
+img {
+  width: 100%; /* 画像を親要素の幅 */
+  height: auto; /* 高さ調整 */
+}
 
-
-
-
+/* モバイル */
+@media (max-width: 480px) {
+  img {
+    max-width: 100%; /* 画像の最大制限 */
+  }
+}
 
   </style>
 </head>
