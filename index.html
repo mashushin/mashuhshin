@@ -3,72 +3,66 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ましゅまろがこの世の救世主なんて私は信じない！公式サイト</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
-    .active {
-      animation: buttonAnimation 0.5s ease-in-out;
-    }
-    
-    @keyframes buttonAnimation {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-  </style>
-  <meta name="google-site-verification" content="VV0DElQqCUnjvhmfCg4CBpP-Snk3zrhFF0UJu70anJ0" />
-  <style>
-
-nav ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-
-
     body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
-    
+
     header {
-      background-color: #29282800;
+      background-color: #4285F4;
       padding: 10px;
       text-align: center;
     }
-    
+
     nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
     }
-    
+
     nav ul li {
       display: inline;
       margin-right: 10px;
     }
-    
+
     nav ul li a {
       text-decoration: none;
       color: #ffffff;
+      font-weight: bold;
     }
-    
+
     main {
       padding: 20px;
+      background-color: #f1f1f1;
     }
-    
+
     section {
       margin-bottom: 20px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      padding: 10px;
     }
-    
+
     h1,
     h2,
     h3 {
       margin: 0;
       padding: 0;
+      color: #4285F4;
     }
-    
+
+    .person img {
+  width: 480px;
+  height: 270px; 
+}
+
+
+
+
+
 
   </style>
 </head>
@@ -81,6 +75,7 @@ nav ul li {
         <li><a href="#cast">キャスト</a></li>
         <li><a href="#staff">スタッフ</a></li>
         <li><a href="#news">ニュース</a></li>
+        <li><a href="form.html">お問い合わせ</a></li>
       </ul>
     </nav>
   </header>
@@ -94,8 +89,6 @@ nav ul li {
     <section id="works">
       <h2>作品紹介</h2>
       <div class="work">
-        <img src="images/work1.jpg" alt="作品1">
-        <img src="images/work2.jpg" alt="作品2">
         <img src="images/mashu.jpg" alt="作品">
         <h3>あらすじ</h3>
         <p>～突然最強の能力を手に入れた山田は現実世界を無双する～</p>
@@ -167,17 +160,21 @@ nav ul li {
       <h2>最新ニュース</h2>
       <ul>
         <li>2023年11月アニメ4期放送決定！！！</li>
-        <li><a href="blog.html" style="color: rgb(0, 92, 128);">ましゅ信の小説無料公開中！</a></li>
+        <li><a href="blog.html" style="color: #004d80;">ましゅ信の小説無料公開中！</a></li>
       </ul>
-
-      <button onclick="shareTwitter()">Twitterでシェアする</button>
-
-      <script>
-        function shareTwitter() {
-          window.open('https://twitter.com/intent/tweet?text=TV%E3%82%A2%E3%83%8B%E3%83%A1%E3%81%BE%E3%81%97%E3%82%85%E3%81%BE%E3%82%8D%E3%81%8C%E3%81%93%E3%81%AE%E4%B8%96%E3%81%AE%E6%95%91%E4%B8%96%E4%B8%BB%E3%81%AA%E3%82%93%E3%81%A6%E7%A7%81%E3%81%AF%E4%BF%A1%E3%81%98%E3%81%AA%E3%81%84%EF%BC%81%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88' + encodeURIComponent(window.location.href));
-        }
-      </script>
     </section>
+
+    <button onclick="shareTwitter()">Twitterでシェアする</button>
+    
+    <script>
+      function shareTwitter() {
+        window.open('https://twitter.com/intent/tweet?text=TV%E3%82%A2%E3%83%8B%E3%83%A1%E3%81%BE%E3%81%97%E3%82%85%E3%81%BE%E3%82%8D%E3%81%8C%E3%81%93%E3%81%AE%E4%B8%96%E3%81%AE%E6%95%91%E4%B8%96%E4%B8%BB%E3%81%AA%E3%82%93%E3%81%A6%E7%A7%81%E3%81%AF%E4%BF%A1%E3%81%98%E3%81%AA%E3%81%84%EF%BC%81%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%20https%3A%2F%2Fexample.com', '_blank');
+      }
+    </script>
   </main>
+
+  <footer>
+    <p>&copy; 2023 ましゅまろがこの世の救世主なんて私は信じない！公式サイト</p>
+  </footer>
 </body>
 </html>
