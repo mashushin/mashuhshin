@@ -113,11 +113,7 @@
         <label for="message">メッセージ</label>
         <textarea id="message" name="message" required></textarea>
 
-
-        <div class="g-recaptcha" data-sitekey="6LcZW7cmAAAAAPjzhiMUJdBsbycYP07QjqunjSkP"></div>
-<!--サイトキー-->
-
-        <input type="submit" value="送信" id="submitButton" disabled>
+        <input type="submit" value="送信" id="submitButton">
       </form>
     </div>
     <div id="successContainer" class="hidden">
@@ -126,9 +122,6 @@
       <a href="index.html" class="back-button">ホームに戻る</a>
     </div>
   </div>
-
-  <!-- reCAPTCHAのスクリプトを追加 -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <script>
     const form = document.getElementById('contactForm');
@@ -139,26 +132,18 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // reCAPTCHAのチェック
-      const recaptchaResponse = grecaptcha.getResponse();
-      if (recaptchaResponse === '') {
-        alert('reCAPTCHAを完了してください。');
-        return;
-      }
-
-      // Get form values
+   
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
 
-      // Create payload object
+     
       const payload = {
         username: 'お問い合わせフォーム',
-        content: `名前: ${name}\nメールアドレス: ${email}\nメッセージ: ${message}`,
-        recaptchaResponse: recaptchaResponse
+        content: `名前: ${name}\nメールアドレス: ${email}\nメッセージ: ${message}`
       };
 
-      // Send payload to Discord webhook
+      
       fetch('https://discord.com/api/webhooks/1120533554649120770/SpW-hKSRUe-HlO5YiK2Atst48HCZwH3PdvDNVi5Lc-Zg8nm9WHePTwYTS9iPU89H2rYO', {
         method: 'POST',
         headers: {
@@ -168,8 +153,8 @@
       })
         .then(response => {
           if (response.ok) {
-            contactFormContainer.classList.add('hidden'); // Hide the contact form
-            successContainer.classList.remove('hidden'); // Show the success message
+            contactFormContainer.classList.add('hidden'); 
+            successContainer.classList.remove('hidden'); 
           } else {
             alert('お問い合わせの送信に失敗しました。');
           }
@@ -179,8 +164,6 @@
           alert('お問い合わせの送信に失敗しました。');
         });
     });
-
-    
   </script>
 </body>
 </html>
