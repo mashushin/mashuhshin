@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ましゅ信！お問い合わせフォーム</title>
+  
   <style>
     body {
       margin: 0;
@@ -112,10 +113,11 @@
         <label for="message">メッセージ</label>
         <textarea id="message" name="message" required></textarea>
 
-        <!-- reCAPTCHAのウィジェットを追加 -->
-        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 
-        <input type="submit" value="送信" id="submitButton">
+        <div class="g-recaptcha" data-sitekey="6LcZW7cmAAAAAPjzhiMUJdBsbycYP07QjqunjSkP"></div>
+<!--サイトキー-->
+
+        <input type="submit" value="送信" id="submitButton" disabled>
       </form>
     </div>
     <div id="successContainer" class="hidden">
@@ -135,7 +137,7 @@
     const contactFormContainer = document.getElementById('contactFormContainer');
 
     form.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevent form submission
+      e.preventDefault();
 
       // reCAPTCHAのチェック
       const recaptchaResponse = grecaptcha.getResponse();
@@ -177,6 +179,8 @@
           alert('お問い合わせの送信に失敗しました。');
         });
     });
+
+    
   </script>
 </body>
 </html>
