@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="/images/Internet.jpg" type="image/jpeg">
+  <link rel="shortcut icon" href="/images/Internet.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/Internet.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ましゅ信！寄付フォーム</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4285F4;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3367D6;
+    }
+
+    .success-message {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .info-message {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4285F4;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .back-button:hover {
+      background-color: #3367D6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .donation-note {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      font-style: italic;
+      color: #888888;
+    }
+    @media (max-width: 500px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    
+    <h1>ましゅ信！寄付フォーム</h1>
+    <div id="contactFormContainer">
+      <form id="contactForm" action="#" method="POST">
+        <label for="name">名前</label>
+        <input type="text" id="name" name="name" placeholder="名前" required>
+
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+        <label for="paypay">PayPay URL</label>
+        <input type="text" id="paypay" name="paypay" placeholder="PayPayのURLを入力してください" required>
+
+        <label for="message">コメント</label>
+        <textarea id="message" name="message" placeholder="コメントを入力してください" required></textarea>
+
+        <input type="submit" value="寄付する" id="submitButton">
+        
+        <p>寄付していただきましたお金は、全て「ましゅ信！」のアニメ制作費用に充てさせていただきます。</p>
+      </form>
+    </div>
+    <div id="successContainer" class="hidden">
+      <p class="success-message">寄付ありがとうございます！</p>
+      <p class="info-message">寄付ありがとうございます！<br>コメントへの返信は入力いただいたメールアドレスに送信いたします。<br>返信までお時間をいただくことがあります。ご了承ください。<br>どうぞよろしくお願いいたします。</p>
+      <a href="index.html" class="back-button">ホームに戻る</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitButton = document.getElementById('submitButton');
+    const successContainer = document.getElementById('successContainer');
+    const contactFormContainer = document.getElementById('contactFormContainer');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const paypay = document.getElementById('paypay').value;
+      const message = document.getElementById('message').value;
+
+      const payload = {
+        username: 'お問い合わせフォーム',
+        content: `名前: ${name}\nメールアドレス: ${email}\nPayPay URL: ${paypay}\nメッセージ: ${message}`
+      };
+
+      fetch('https://discord.com/api/webhooks/1122099574165741689/5fTMLzJzP04Wn-zBfd67u8XGDFObivO06wnJgfTJ5Myq0tXOE2wcOISx6j1FaniKcFFk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(response => {
+          if (response.ok) {
+            form.reset();
+            contactFormContainer.style.display = 'none';
+            successContainer.style.display = 'block';
+          } else {
+            alert('お問い合わせの送信に失敗しました。');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('お問い合わせの送信に失敗しました。');
+        });
+    });
+  </script>
+</body>
+</html>
